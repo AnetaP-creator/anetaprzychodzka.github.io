@@ -1,5 +1,4 @@
-# 🌌 anetaprzychodzka.github.io
-
+# # 🌌 [wszechswiatcieslyszy.pl](https://wszechswiatcieslyszy.pl)
 **Oficjalna strona projektu**  
 ✨ „Wszechświat Cię słyszy” ✨  
 Zawiera baner, cennik i galaktyczny styl pełen światła, duszy i głębi.  
@@ -26,4 +25,4 @@ Projekt jest pełen galaktycznych barw, anielskiej poświaty i inspirującej ene
 ---
 
 📬 Kontakt: **anetaprzychodzka75@gmail.com**  
-🌍 Strona: [https://anetaprzychodzka.github.io](https://anetaprzychodzka.github.io)
+🌐 Strona: [wszechswiatcieslyszy.pl](https://wszechswiatcieslyszy.pl)
