@@ -1,33 +1,30 @@
-/* === WSZECHŚWIAT CIĘ SŁYSZY === */
+/* === OGÓLNE USTAWIENIA STRONY === */ body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white; background: linear-gradient(135deg, #3b0a57, #4a148c, #7b1fa2, #ab47bc, #f06292); background-size: 400% 400%; animation: gradientShift 30s ease infinite; overflow-x: hidden; }
 
-/* Globalne tło: gradient w odcieniach indygo, błękitu, fioletu i różu */ body { margin: 0; padding: 0; font-family: 'Arial', sans-serif; background: linear-gradient(120deg, #3c0a74, #4f3ba9, #6b60c2, #9473d7, #d490f5, #f7b4f4, #fad8f7); background-size: 400% 400%; animation: gradientAnimation 30s ease infinite; color: white; overflow-x: hidden; position: relative; }
+@keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-@keyframes gradientAnimation { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+/* === GWIAZDY === */ .stars { position: fixed; width: 100%; height: 100%; background: transparent url('stars.png') repeat top center; z-index: 0; animation: starAnimation 100s linear infinite; pointer-events: none; }
 
-/* Gwiazdy migoczące */ .star { position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%; animation: twinkle 2s infinite ease-in-out; opacity: 0.8; }
+@keyframes starAnimation { from { background-position: 0 0; } to { background-position: -10000px 5000px; } }
 
-@keyframes twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
+/* === SKRZYDŁA ANIOŁA === */ .angel-wings { position: absolute; top: 10%; left: 50%; transform: translateX(-50%); width: 500px; height: auto; opacity: 0.8; filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 50px rgba(255, 215, 0, 0.6)); z-index: 1; }
 
-/* Skrzydła anioła z wyraźną poświatą */ .angel-wings { position: absolute; top: 10%; left: 50%; transform: translateX(-50%); width: 400px; height: 400px; background: radial-gradient(ellipse at center, rgba(255,255,255,0.8) 0%, rgba(255,223,145,0.3) 60%, transparent 100%); border-radius: 50%; filter: blur(40px); z-index: 0; }
+/* === BANER GŁÓWNY === */ header { text-align: center; padding: 100px 20px 50px; z-index: 2; position: relative; }
 
-/* Planety */ .planet { position: absolute; width: 30px; height: 30px; border-radius: 50%; animation: floatPlanet 20s linear infinite; opacity: 0.7; }
+header img { max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 0 25px rgba(255, 255, 255, 0.2); }
 
-.planet1 { background: radial-gradient(circle, #f0c420, #ed8739); top: 20%; left: 10%; }
+/* === NAGŁÓWKI === */ h1, h2 { text-align: center; text-shadow: 0 0 10px #fff, 0 0 20px #ab47bc; margin-bottom: 20px; }
 
-.planet2 { background: radial-gradient(circle, #b0e0ff, #4481c4); top: 60%; left: 80%; }
+h1 { font-size: 3em; }
 
-@keyframes floatPlanet { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+h2 { font-size: 2em; }
 
-/* Nagłówek */ header img { width: 100%; max-height: 100vh; object-fit: cover; z-index: 1; }
+/* === SEKCJE === */ section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; background-color: rgba(0, 0, 0, 0.4); border-radius: 20px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); z-index: 2; position: relative; }
 
-/* Tekst */ h1, h2, p { text-align: center; z-index: 2; position: relative; color: white; text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); }
+/* === OBRAZY === */ img { max-width: 100%; display: block; margin: 20px auto; border-radius: 15px; }
 
-/* Sekcje */ section { padding: 40px 20px; position: relative; z-index: 2; }
+/* === STOPKA === */ footer { text-align: center; padding: 40px; font-size: 0.9em; color: #ccc; }
 
-/* Przycisk kontaktowy */ button { display: block; margin: 30px auto; padding: 12px 30px; font-size: 18px; background: #ffffffcc; color: #12002f; border: none; border-radius: 10px; cursor: pointer; transition: background 0.3s ease; }
+/* === PRZYCISKI === */ button, .btn { background: #ab47bc; border: none; padding: 12px 24px; border-radius: 30px; color: white; font-weight: bold; cursor: pointer; transition: background 0.3s ease, transform 0.2s ease; text-decoration: none; }
 
-button:hover { background: #ffebcd; }
-
-/* Stopka */ footer { text-align: center; padding: 20px; font-size: 14px; background-color: #12002f; color: #ffffffaa; }
-
+button:hover, .btn:hover { background: #f06292; transform: scale(1.05); }
 
