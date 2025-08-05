@@ -1,117 +1,33 @@
-* Podstawy */
-:root {
-  --maxw: 1200px;
-}
+/* === WSZECHŚWIAT CIĘ SŁYSZY === */
 
-* { box-sizing: border-box; }
+/* Globalne tło: gradient w odcieniach indygo, błękitu, fioletu i różu */ body { margin: 0; padding: 0; font-family: 'Arial', sans-serif; background: linear-gradient(120deg, #3c0a74, #4f3ba9, #6b60c2, #9473d7, #d490f5, #f7b4f4, #fad8f7); background-size: 400% 400%; animation: gradientAnimation 30s ease infinite; color: white; overflow-x: hidden; position: relative; }
 
-html, body { margin: 0; padding: 0; }
+@keyframes gradientAnimation { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  line-height: 1.6;
-  background: #0b0f1a;   /* kosmiczne tło */
-  color: #f5f6fa;
-}
+/* Gwiazdy migoczące */ .star { position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%; animation: twinkle 2s infinite ease-in-out; opacity: 0.8; }
 
-/* Baner u góry */
-header { margin: 0; padding: 0; }
+@keyframes twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
 
-header img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: var(--maxw);
-  margin: 0 auto;
-}
+/* Skrzydła anioła z wyraźną poświatą */ .angel-wings { position: absolute; top: 10%; left: 50%; transform: translateX(-50%); width: 400px; height: 400px; background: radial-gradient(ellipse at center, rgba(255,255,255,0.8) 0%, rgba(255,223,145,0.3) 60%, transparent 100%); border-radius: 50%; filter: blur(40px); z-index: 0; }
 
-/* Sekcje z obrazami */
-section {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 16px;
-}
+/* Planety */ .planet { position: absolute; width: 30px; height: 30px; border-radius: 50%; animation: floatPlanet 20s linear infinite; opacity: 0.7; }
 
-section img {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 16px 0;
-  border-radius: 4px;
-}
+.planet1 { background: radial-gradient(circle, #f0c420, #ed8739); top: 20%; left: 10%; }
 
-/* Stopka */
-footer {
-  max-width: var(--maxw);
-  margin: 24px auto;
-  padding: 0 16px 32px;
-  text-align: center;
-  font-size: .95rem;
-  color: #cfd6e3;
-}
+.planet2 { background: radial-gradient(circle, #b0e0ff, #4481c4); top: 60%; left: 80%; }
 
-/* Przycisk muzyki */
-#play-btn {
-  display: inline-block;
-  margin: 16px;
-  padding: 10px 16px;
-  border: none;
-  border-radius: 8px;
-  background: #2d6cdf;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,.25);
-}
+@keyframes floatPlanet { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
 
-#play-btn:hover { filter: brightness(1.08); }
+/* Nagłówek */ header img { width: 100%; max-height: 100vh; object-fit: cover; z-index: 1; }
 
-/* Ukryty natywny odtwarzacz */
-audio { display: none; }
+/* Tekst */ h1, h2, p { text-align: center; z-index: 2; position: relative; color: white; text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); }
 
-/* --- GWIAZDY NA BANERZE --- */
-header {
-  position: relative;
-  overflow: hidden;
-}
+/* Sekcje */ section { padding: 40px 20px; position: relative; z-index: 2; }
 
-header img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-/* Poświata skrzydeł anioła */
-header::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120%;
-  height: 100%;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.5) 10%, transparent 60%),
-              radial-gradient(circle at center, rgba(255, 215, 0, 0.3) 15%, transparent 70%);
-  mix-blend-mode: screen;
-  pointer-events: none;
-  z-index: 1;
-}
-/* półprzezroczysta „siatka” gwiazdek nad obrazem */
-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(rgba(255,255,255,.9) 1px, transparent 1.5px),
-    radial-gradient(rgba(255,255,255,.6) .8px, transparent 1.2px),
-    radial-gradient(rgba(255,255,255,.8) .6px, transparent 1px);
-  background-size: 120px 120px, 90px 90px, 60px 60px;
-  background-position: 0 0, 30px 15px, 60px 45px;
-  animation: blinkStars 4s infinite ease-in-out;
-  pointer-events: none;
-  z-index: 1;               /* to stawia gwiazdy nad obrazem */
-}
+/* Przycisk kontaktowy */ button { display: block; margin: 30px auto; padding: 12px 30px; font-size: 18px; background: #ffffffcc; color: #12002f; border: none; border-radius: 10px; cursor: pointer; transition: background 0.3s ease; }
 
-@keyframes blinkStars {
-  0%, 100% { opacity: .6; }
-  50%      { opacity: 1; }
-}
+button:hover { background: #ffebcd; }
+
+/* Stopka */ footer { text-align: center; padding: 20px; font-size: 14px; background-color: #12002f; color: #ffffffaa; }
+
+
