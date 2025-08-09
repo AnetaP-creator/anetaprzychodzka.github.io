@@ -27,4 +27,22 @@ h2 { font-size: 2em; }
 /* === PRZYCISKI === */ button, .btn { background: #ab47bc; border: none; padding: 12px 24px; border-radius: 30px; color: white; font-weight: bold; cursor: pointer; transition: background 0.3s ease, transform 0.2s ease; text-decoration: none; }
 
 button:hover, .btn:hover { background: #f06292; transform: scale(1.05); }
+.download-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #4b0082, #6a5acd, #ff69b4, #ffd700);
+    background-size: 300% 300%;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
 
+.download-btn:hover {
+    background-position: right center;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 1);
+    transform: scale(1.05);
+}
