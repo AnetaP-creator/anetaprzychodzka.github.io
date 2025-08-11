@@ -237,3 +237,39 @@ button:hover, .btn:hover { background: #f06292; transform: scale(1.05); }
     background: #ffd700;
     color: black;
 }
+/* === Złoty adres www nad sekcją === */
+.gold-www { text-align:center; margin: 24px 0 -8px; }
+.gold-text{ font-size: 1.1rem; line-height: 1.7; color:#f5d37a; }
+.gold-link{ color:#f5d37a; font-weight:700; text-decoration:none; }
+.gold-link:hover{ text-decoration: underline; }
+
+/* === Sekcja „Bezpieczna współpraca” (tło + układ) === */
+#umowa.galaxy-section{
+  position: relative;
+  padding: 80px 24px 120px;
+  background: url('tlo_galaktyczne.jpg') center/cover fixed no-repeat;
+  overflow: hidden;
+  text-align: center;
+}
+#umowa .galaxy-overlay{
+  position: absolute; inset: 0;
+  background: radial-gradient(60% 60% at 50% 40%, rgba(255,220,120,.15) 0%,
+                               rgba(0,0,0,.30) 60%, rgba(0,0,0,.65) 100%);
+  pointer-events: none;
+}
+#umowa .umowa-inner{
+  position: relative; z-index: 1; max-width: 900px; margin: 0 auto;
+}
+.gold-title{
+  font-size: 2rem; margin: 0 0 10px; color:#f5d37a; letter-spacing:.5px;
+}
+
+/* === Przycisk „Pobierz umowę” === */
+.download-btn{
+  display:inline-block; margin-top:20px; padding:14px 28px; border-radius:40px;
+  font-weight:800; font-size:18px; color:#fff; text-decoration:none;
+  background: linear-gradient(45deg,#4b0082,#f06292);
+  box-shadow:0 10px 30px rgba(0,0,0,.35), 0 0 35px rgba(240,98,146,.25);
+  transition: transform .2s, box-shadow .2s, filter .2s;
+}
+.download-btn:hover{ transform:translateY(-2px) scale(1.03); filter:brightness(1.06); }
