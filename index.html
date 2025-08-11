@@ -4,68 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wszechświat Cię słyszy</title>
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<audio id="bg-music" loop preload="auto">
-  <source src="divine-feminine-energy.mp3" type="audio/mpeg">
-  Twoja przeglądarka nie obsługuje elementu audio.
-</audio>
+    <!-- Muzyka w tle -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="divine-feminine-energy.mp3" type="audio/mpeg">
+        Twoja przeglądarka nie obsługuje elementu audio.
+    </audio>
+    <button id="play-btn" style="margin:16px;">Włącz muzykę 🎵</button>
 
-<button id="play-btn" style="margin:16px; padding:10px 16px; font-size:16px;">
-  Włącz muzykę 🎵
-</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('bg-music');
+            const btn = document.getElementById('play-btn');
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const audio = document.getElementById('bg-music');
-    const btn = document.getElementById('play-btn');
+            // Autostart po pierwszym kliknięciu
+            ['click', 'touchstart'].forEach(evt => {
+                document.addEventListener(evt, function fn() {
+                    audio.play().catch(() => {});
+                    document.removeEventListener(evt, fn);
+                }, { once: true });
+            });
 
-    // Spróbuj wystartować po pierwszej interakcji gdziekolwiek
-    ['click','touchstart'].forEach(evt => {
-      document.addEventListener(evt, function handler() {
-        audio.play().catch(() => {});
-        document.removeEventListener(evt, handler);
-      }, { once: true });
-    });
+            // Ręczny przycisk
+            btn.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play().then(() => btn.textContent = 'Wyłącz muzykę 🔇');
+                } else {
+                    audio.pause();
+                    btn.textContent = 'Włącz muzykę 🎵';
+                }
+            });
+        });
+    </script>
 
-    // Ręczny przycisk: włącz/wyłącz
-    btn.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play().then(() => { btn.textContent = 'Pauza ⏸'; });
-      } else {
-        audio.pause();
-        btn.textContent = 'Włącz muzykę 🎵';
-      }
-    });
-  });
-</script>
-
+    <!-- Baner główny -->
     <header>
-  <img src="baner.jpg" alt="Baner główny: Wszechświat Cię słyszy">
-</header>
-<section>
-  <h2>TWORZĘ DLA CIEBIE:<br>POEZJĘ • CYTATY BIBLII • <strong>OPOWIEŚCI</strong></h2>
-</section>
+        <img src="baner.jpg" alt="Baner główny Wszechświat Cię słyszy">
+    </header>
 
-<section>
-  <p style="text-align: center; font-size: 1.2em; margin-top: 20px;">
-    Strona: <a href="https://www.wszechswiatcieslyszy.pl" target="_blank" style="color: #fbdc88; text-decoration: none;">
-      www.wszechswiatcieslyszy.pl
-    </a>
-  </p>
-</section>
+    <!-- Sekcja O mnie -->
     <section>
         <img src="Aneta_Strona_O_Mnie_FINAL.png" alt="O mnie">
     </section>
 
+    <!-- Sekcja Cennik -->
     <section>
         <img src="Aneta_Cennik_FINAL_NOWY.png" alt="Cennik usług">
     </section>
 
-    <footer>
-        
-    </footer>
-<section id="umowa" class="galaxy-section">
-  <div class="galaxy-overlay"></div>
-  <div class="umowa-inner"
+    <!-- Sekcja Bezpieczna współpraca -->
+    <section id="umowa" class="galaxy-section">
+        <div class="galaxy-overlay"></div>
+        <div class="umowa-inner">
+            <p style="text-align:center; font-size:18px; color:gold; font-weight:bold;">
+                <a href="https://www.wszechswiatcieslyszy.pl" target="_blank" style="color:gold; text-decoration:none;">
+                    www.wszechswiatcieslyszy.pl
+                </a>
+            </p>
+            <h2 class="gold-title">Bezpieczna współpraca</h2>
+            <p class="gold-text">
+                Jeśli chcesz zobaczyć przykładową umowę – kliknij poniżej.
+            </p>
+            <a href="umowa_z_logo_tlo_final.pdf" download>
+                <span class="icon-file" aria-hidden="true"></span> Pobierz umowę
+            </a>
+        </div>
+    </section>
+</body>
+</html>
