@@ -119,3 +119,13 @@ button:hover, .btn:hover { background: #f06292; transform: scale(1.05); }
   font-size: 1.2em;
   line-height: 1;
 }
+.gold-text a,
+.gold-link {
+  color: #ffd166;
+  text-decoration: none;
+  font-weight: 700;
+}
+.gold-text a:hover,
+.gold-link:hover {
+  text-decoration: underline;
+}
