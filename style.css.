@@ -129,3 +129,66 @@ button:hover, .btn:hover { background: #f06292; transform: scale(1.05); }
 .gold-link:hover {
   text-decoration: underline;
 }
+/* Sekcja Bezpieczna współpraca */
+#umowa.galaxy-section {
+    background: url('tlo_galaktyczne.jpg') no-repeat center center/cover;
+    padding: 40px 20px;
+    position: relative;
+}
+
+#umowa .galaxy-overlay {
+    background: rgba(0, 0, 0, 0.4); /* delikatne przyciemnienie dla czytelności tekstu */
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+}
+
+#umowa .umowa-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.gold-title {
+    color: gold;
+    font-size: 2em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+}
+
+.gold-text {
+    color: gold;
+    font-size: 1.1em;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.gold-link {
+    color: gold;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.gold-link:hover {
+    color: #ffd700;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 1);
+}
+
+/* Styl przycisku pobrania umowy */
+#umowa a[href$=".pdf"] {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: gold;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#umowa a[href$=".pdf"]:hover {
+    background: #ffec8b;
+    transform: scale(1.05);
+}
