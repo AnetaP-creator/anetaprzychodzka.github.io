@@ -1,97 +1,68 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wszechświat Cię słyszy</title>
-  <meta name="description" content="Strony internetowe, grafika i promocja. Wszechświat Cię słyszy — Aneta." />
+  <title>Wszechświat Cię Słyszy – Strona Główna</title>
+  <meta name="description" content="Wszechświat Cię Słyszy – galaktyczny design, strony, banery, poezja i cytaty Biblii. Skontaktuj się: anetaprzychodzka75@gmail.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <main class="hero" role="main" aria-label="Baner główny">
+    <div class="hero__overlay"></div>
 
-  <!-- MUZYKA -->
-  <!-- MUZYKA (powrót) -->
-<audio id="bg-music" loop preload="auto">
-  <source src="divine-feminine-energy.mp3" type="audio/mpeg" />
-  Twoja przeglądarka nie obsługuje elementu audio.
-</audio>
-<div style="text-align:center">
-  <button id="play-btn" class="btn-audio">Włącz muzykę 🎵</button>
-</div>
-<script>
-    // auto-start po pierwszym dotknięciu oraz przełącznik
-    document.addEventListener('DOMContentLoaded', () => {
-      const audio = document.getElementById('bg-music');
-      const btn   = document.getElementById('play-btn');
+    <div class="hero__content">
+      <h1 class="title">WSZECHŚWIAT<br><span>CIĘ SŁYSZY</span></h1>
 
-      ['click','touchstart'].forEach(evt => {
-        document.addEventListener(evt, function once(){
-          audio.play().then(()=>{ btn.textContent='Wyłącz muzykę 🔇'; }).catch(()=>{});
-          document.removeEventListener(evt, once);
-        }, { once:true });
-      });
+      <div class="lines">
+        <p class="line">STWORZĘ DLA CIEBIE: <strong>REKLAMĘ • STRONY • BANERY</strong></p>
+        <p class="line">TWORZĘ DLA CIEBIE: <strong>POEZJĘ • CYTATY BIBLII • LITERATURĘ</strong></p>
+      </div>
 
-      btn.addEventListener('click', () => {
-        if (audio.paused){
-          audio.play().then(()=> btn.textContent='Wyłącz muzykę 🔇').catch(()=>{});
+      <div class="contact">
+        <p>Kontakt:</p>
+        <p>
+          <a class="email" href="mailto:anetaprzychodzka75@gmail.com">anetaprzychodzka75@gmail.com</a><br>
+          <a class="site" href="https://wszechswiatcieslyszy.pl" target="_blank" rel="noopener">https://wszechswiatcieslyszy.pl</a>
+        </p>
+      </div>
+
+      <button id="musicBtn" class="music-btn" type="button" aria-pressed="false">Włącz muzykę 🎵</button>
+      <audio id="bgMusic" preload="auto" loop>
+        <!-- Twoja muzyka jest w katalogu głównym repo -->
+        <source src="divine-feminine-energy.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+
+    <!-- TŁO: nowy baner JPG w katalogu głównym -->
+    <div class="hero__bg" role="img" aria-label="Galaktyczne tło z gwiazdami, planetami i poświatą skrzydeł anioła"></div>
+  </main>
+
+  <script>
+    const btn = document.getElementById('musicBtn');
+    const audio = document.getElementById('bgMusic');
+
+    function setPlayingState(on) {
+      btn.setAttribute('aria-pressed', String(on));
+      btn.textContent = on ? 'Wyłącz muzykę 🎵' : 'Włącz muzykę 🎵';
+    }
+
+    btn.addEventListener('click', async () => {
+      try {
+        if (audio.paused) {
+          await audio.play();
+          setPlayingState(true);
         } else {
           audio.pause();
-          btn.textContent='Włącz muzykę 🎵';
+          setPlayingState(false);
         }
-      });
+      } catch (e) {
+        console.warn('Nie udało się odtworzyć muzyki:', e);
+      }
     });
-</script>
-  
-
-  <!-- BANER -->
-  <header>
-    <img src="baner.jpg" alt="Baner główny: Wszechświat Cię słyszy" />
-  </header>
-
-  <!-- O MNIE (grafika) -->
-  <section>
-    <img src="Aneta_Strona_O_Mnie_FINAL.png" alt="O mnie — Aneta" />
-  </section>
-
-  <!-- CENNIK (grafika) -->
-  <section>
-    <img src="Aneta_Cennik_FINAL_NOWY.png" alt="Cennik usług" />
-  </section>
-
-  <!-- Złoty adres www nad sekcją umowy -->
-  <section class="gold-www">
-    <p class="gold-text">
-      <a class="gold-link" href="https://www.wszechswiatcieslyszy.pl" target="_blank" rel="noopener">
-        www.wszechswiatcieslyszy.pl
-      </a>
-    </p>
-  </section>
-
-  <!-- BEZPIECZNA WSPÓŁPRACA (tło w CSS: tlo_galaktyczne.jpg) -->
-  <section id="umowa" class="galaxy-section">
-    <div class="galaxy-overlay"></div>
-    <div class="umowa-inner">
-      <h2 class="gold-title">Bezpieczna współpraca</h2>
-
-      <!-- E-mail: tylko tutaj, złoty i klikalny -->
-      <p class="gold-text" style="margin:10px 0 18px">
-        <a class="gold-link"
-           href="mailto:anetaprzychodzka75@gmail.com?subject=Zlecenie%20WWW&body=Dzień%20dobry,%20chciał(a)bym%20zlecić%20projekt.%20Proszę%20o%20kontakt.">
-          anetaprzychodzka75@gmail.com
-        </a>
-      </p>
-
-      <p class="gold-text">
-        Jeśli chcesz zobaczyć przykładową umowę lub pobrać ją do wydruku – kliknij poniżej:
-      </p>
-
-      <p>
-        <a href="umowa_z_logo_tlo_final.pdf" download class="download-btn" aria-label="Pobierz umowę (PDF)">
-          📄 Pobierz umowę
-        </a>
-      </p>
-    </div>
-  </section>
-
+  </script>
 </body>
 </html>
