@@ -10,15 +10,15 @@
 <body>
 
   <!-- MUZYKA -->
-  <audio id="bg-music" loop preload="auto">
-    <source src="divine-feminine-energy.mp3" type="audio/mpeg" />
-    Twoja przeglądarka nie obsługuje elementu audio.
-  </audio>
-  <div class="audio-wrap">
-    <button id="play-btn" class="btn-audio">Włącz muzykę 🎵</button>
-  </div>
-
-  <script>
+  <!-- MUZYKA (powrót) -->
+<audio id="bg-music" loop preload="auto">
+  <source src="divine-feminine-energy.mp3" type="audio/mpeg" />
+  Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
+<div style="text-align:center">
+  <button id="play-btn" class="btn-audio">Włącz muzykę 🎵</button>
+</div>
+<script>
     // auto-start po pierwszym dotknięciu oraz przełącznik
     document.addEventListener('DOMContentLoaded', () => {
       const audio = document.getElementById('bg-music');
@@ -40,7 +40,8 @@
         }
       });
     });
-  </script>
+</script>
+  
 
   <!-- BANER -->
   <header>
