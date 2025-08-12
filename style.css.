@@ -1,293 +1,100 @@
-/* === OGÓLNE USTAWIENIA STRONY === */ body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white; background: linear-gradient(135deg, #3b0a57, #4a148c, #7b1fa2, #ab47bc, #f06292); background-size: 400% 400%; animation: gradientShift 30s ease infinite; overflow-x: hidden; }
-
-@keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-
-/* === GWIAZDY === */ .stars { position: fixed; width: 100%; height: 100%; background: transparent url('stars.png') repeat top center; z-index: 0; animation: starAnimation 100s linear infinite; pointer-events: none; }
-
-@keyframes starAnimation { from { background-position: 0 0; } to { background-position: -10000px 5000px; } }
-
-/* === SKRZYDŁA ANIOŁA === */ .angel-wings { position: absolute; top: 10%; left: 50%; transform: translateX(-50%); width: 500px; height: auto; opacity: 0.8; filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 50px rgba(255, 215, 0, 0.6)); z-index: 1; }
-
-/* === BANER GŁÓWNY === */ header { text-align: center; padding: 100px 20px 50px; z-index: 2; position: relative; }
-
-header img { max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 0 25px rgba(255, 255, 255, 0.2); }
-
-/* === NAGŁÓWKI === */ h1, h2 { text-align: center; text-shadow: 0 0 10px #fff, 0 0 20px #ab47bc; margin-bottom: 20px; }
-
-h1 { font-size: 3em; }
-
-h2 { font-size: 2em; }
-
-/* === SEKCJE === */ section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; background-color: rgba(0, 0, 0, 0.4); border-radius: 20px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); z-index: 2; position: relative; }
-
-/* === OBRAZY === */ img { max-width: 100%; display: block; margin: 20px auto; border-radius: 15px; }
-
-/* === STOPKA === */ footer { text-align: center; padding: 40px; font-size: 0.9em; color: #ccc; }
-
-/* === PRZYCISKI === */ button, .btn { background: #ab47bc; border: none; padding: 12px 24px; border-radius: 30px; color: white; font-weight: bold; cursor: pointer; transition: background 0.3s ease, transform 0.2s ease; text-decoration: none; }
-
-button:hover, .btn:hover { background: #f06292; transform: scale(1.05); }
-.download-btn {
-    display: inline-block;
-    padding: 12px 28px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 50px;
-    background: linear-gradient(45deg, #4b0082, #6a5acd, #ff69b4, #ffd700);
-    background-size: 300% 300%;
-    transition: all 0.4s ease;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+/* ===== Wszechświat Cię Słyszy — styl ===== */
+:root{
+  --gold:#f7d774;
+  --text:#f5f0e6;
+  --btn-bg:#3a37b0;
+  --btn-bg-hover:#2c2990;
+  --shadow:0 12px 40px rgba(0,0,0,.45);
+  --glow:rgba(247,215,116,.55);
 }
 
-.download-btn:hover {
-    background-position: right center;
-    box-shadow: 0 0 25px rgba(255, 215, 0, 1);
-    transform: scale(1.05);
-}
-/* === SEK CJA: BEZPIECZNA WSPÓŁPRACA === */
-.galaxy-section {
-  position: relative;
-  padding: 60px 20px;
-  margin: 0 auto;
-  max-width: 1100px;
-  border-radius: 20px;
-  overflow: hidden;
-  /* tło: używamy tego samego, co strona – delikatnie przyciemniamy, by złoto świeciło */
-  background: rgba(0,0,0,0.35);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--text);
+  background:#0b0f2a;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Noto Sans",sans-serif;
 }
 
-.galaxy-section .galaxy-overlay {
-  content: "";
-  position: absolute;
-  inset: 0;
-  /* lekkie rozświetlenie, „poświata skrzydeł” */
-  background: radial-gradient(1200px 600px at 50% 10%, rgba(255, 215, 128, 0.08), rgba(0,0,0,0) 60%),
-              radial-gradient(900px 500px at 50% 60%, rgba(147, 112, 219, 0.08), rgba(0,0,0,0) 70%);
-  pointer-events: none;
+/* Sekcja hero */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
 }
 
-.umowa-inner {
-  position: relative;
-  z-index: 1;
-  text-align: center;
+.hero__bg{
+  position:absolute; inset:0;
+  background-image:url('baner_wszechswiatcieslyszy.jpg'); /* nowy plik w katalogu głównym */
+  background-size:cover;
+  background-position:center;
+  filter:saturate(1.05) contrast(1.05);
+  z-index:0;
 }
 
-/* Złote napisy */
-.gold-title {
-  color: #f5d06f; /* złoto */
-  text-shadow: 0 0 10px rgba(255, 215, 128, 0.25), 0 0 22px rgba(255,255,255,0.12);
-  font-size: 2.2em;
-  margin-bottom: 16px;
+.hero__overlay{
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse at center, rgba(255,255,255,.06) 0%, rgba(10,12,32,.6) 55%, rgba(6,8,24,.9) 100%);
+  z-index:1; pointer-events:none;
 }
 
-.gold-text {
-  color: #f1e6c4;
-  font-size: 1.1em;
-  line-height: 1.6;
-  margin: 0 auto 26px;
-  max-width: 740px;
+.hero__content{
+  position:relative; z-index:2;
+  width:min(100%,1100px);
+  padding:clamp(16px,2.5vw,32px);
+  text-align:center;
+  text-shadow:0 2px 0 rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.55);
 }
 
-/* Złoty przycisk */
-.gold-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 28px;
-  border-radius: 50px;
-  color: #1a0f00;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 18px;
-  letter-spacing: 0.3px;
-  background: linear-gradient(135deg, #ffd36e, #d4af37 45%, #b88900 100%);
-  box-shadow: 0 8px 28px rgba(212, 175, 55, 0.35), inset 0 0 10px rgba(255,255,255,0.25);
-  transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+.title{
+  font-family:Cinzel,serif;
+  font-weight:800;
+  letter-spacing:.02em;
+  line-height:1.05;
+  margin:0 0 clamp(16px,3vw,28px);
+  font-size:clamp(44px,7.5vw,86px);
+  color:var(--gold);
+}
+.title span{display:inline-block;margin-top:.05em}
+
+.lines{ margin:clamp(16px,3vw,28px) auto; max-width:1000px; }
+.line{
+  margin:.35em 0;
+  font-size:clamp(18px,2.8vw,34px);
+  font-weight:700;
+  letter-spacing:.02em;
+  color:var(--gold);
 }
 
-.gold-btn:hover {
-  transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 12px 36px rgba(212, 175, 55, 0.45), inset 0 0 16px rgba(255,255,255,0.3);
-  filter: saturate(1.08);
+.contact{ margin:clamp(14px,3vw,24px) 0 clamp(16px,3.5vw,30px); font-size:clamp(18px,2.5vw,28px) }
+.contact p{ margin:.25em 0 }
+a.email, a.site{
+  color:var(--gold); font-weight:700; text-decoration:none;
+  border-bottom:2px solid transparent;
+  transition:border-color .2s ease, text-shadow .2s ease;
 }
+a.email:hover, a.site:hover{ border-color:var(--gold); text-shadow:0 0 12px rgba(247,215,116,.4) }
 
-/* Ikonka na przycisku – zostaje emoji, ale wyrównujemy */
-.icon-file {
-  font-size: 1.2em;
-  line-height: 1;
-}
-.gold-text a,
-.gold-link {
-  color: #ffd166;
-  text-decoration: none;
-  font-weight: 700;
-}
-.gold-text a:hover,
-.gold-link:hover {
-  text-decoration: underline;
-}
-/* Sekcja Bezpieczna współpraca */
-#umowa.galaxy-section {
-    background: url('tlo_galaktyczne.jpg') no-repeat center center/cover;
-    padding: 40px 20px;
-    position: relative;
-}
-
-#umowa .galaxy-overlay {
-    background: rgba(0, 0, 0, 0.4); /* delikatne przyciemnienie dla czytelności tekstu */
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 1;
-}
-
-#umowa .umowa-inner {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-}
-
-.gold-title {
-    color: gold;
-    font-size: 2em;
-    margin-bottom: 15px;
-    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
-}
-
-.gold-text {
-    color: gold;
-    font-size: 1.1em;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-}
-
-.gold-link {
-    color: gold;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.gold-link:hover {
-    color: #ffd700;
-    text-shadow: 0 0 15px rgba(255, 215, 0, 1);
-}
-
-/* Styl przycisku pobrania umowy */
-#umowa a[href$=".pdf"] {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: gold;
-    color: black;
-    font-weight: bold;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-
-#umowa a[href$=".pdf"]:hover {
-    background: #ffec8b;
-    transform: scale(1.05);
-}
-/* ===== Sekcja Bezpieczna Współpraca ===== */
-.bezpieczna-wspolpraca {
-    background: url('tlo_galaktyczne.jpg') no-repeat center center/cover;
-    padding: 80px 20px;
-    text-align: center;
-    color: gold; /* złote litery */
-    font-family: 'Arial', sans-serif;
-}
-
-.bezpieczna-wspolpraca h2 {
-    font-size: 2.5em;
-    font-weight: bold;
-    color: gold;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-}
-
-.bezpieczna-wspolpraca a {
-    color: gold;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.bezpieczna-wspolpraca a:hover {
-    color: #ffd700; /* jaśniejsze złoto po najechaniu */
-    text-decoration: underline;
-}
-
-/* Przycisk Pobierz umowę */
-.pobierz-umowe {
-    background: gold;
-    color: #1a1a1a;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-size: 1.2em;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-    display: inline-block;
-}
-
-.pobierz-umowe:hover {
-    background: #ffd700;
-    color: black;
-}
-/* === Złoty adres www nad sekcją === */
-.gold-www { text-align:center; margin: 24px 0 -8px; }
-.gold-text{ font-size: 1.1rem; line-height: 1.7; color:#f5d37a; }
-.gold-link{ color:#f5d37a; font-weight:700; text-decoration:none; }
-.gold-link:hover{ text-decoration: underline; }
-
-/* === Sekcja „Bezpieczna współpraca” (tło + układ) === */
-#umowa.galaxy-section{
-  position: relative;
-  padding: 80px 24px 120px;
-  background: url('tlo_galaktyczne.jpg') center/cover fixed no-repeat;
-  overflow: hidden;
-  text-align: center;
-}
-#umowa .galaxy-overlay{
-  position: absolute; inset: 0;
-  background: radial-gradient(60% 60% at 50% 40%, rgba(255,220,120,.15) 0%,
-                               rgba(0,0,0,.30) 60%, rgba(0,0,0,.65) 100%);
-  pointer-events: none;
-}
-#umowa .umowa-inner{
-  position: relative; z-index: 1; max-width: 900px; margin: 0 auto;
-}
-.gold-title{
-  font-size: 2rem; margin: 0 0 10px; color:#f5d37a; letter-spacing:.5px;
-}
-
-/* === Przycisk „Pobierz umowę” === */
-.download-btn{
-  display:inline-block; margin-top:20px; padding:14px 28px; border-radius:40px;
-  font-weight:800; font-size:18px; color:#fff; text-decoration:none;
-  background: linear-gradient(45deg,#4b0082,#f06292);
-  box-shadow:0 10px 30px rgba(0,0,0,.35), 0 0 35px rgba(240,98,146,.25);
-  transition: transform .2s, box-shadow .2s, filter .2s;
-}
-.download-btn:hover{ transform:translateY(-2px) scale(1.03); filter:brightness(1.06); }
-/* Pasek z przyciskiem muzyki u góry */
-.music-bar{
-  position: sticky; top: 0; z-index: 1000;
-  display: flex; justify-content: center;
-  padding: 10px 0;
-  backdrop-filter: blur(6px);
-}
-
-/* Sam przycisk – indigo → róż ze złotą poświatą */
+/* Przycisk muzyki */
 .music-btn{
-  border: 0; padding: 10px 18px; border-radius: 22px;
-  font-weight: 700; color: #fff; cursor: pointer;
-  background: linear-gradient(45deg,#4b0082,#f06292);
-  box-shadow: 0 8px 24px rgba(0,0,0,.35), 0 0 18px rgba(245,211,58,.35);
-  transition: transform .15s ease, box-shadow .2s ease;
+  appearance:none; border:0; cursor:pointer;
+  font:700 clamp(16px,2.2vw,24px)/1.1 Inter,system-ui,sans-serif;
+  padding:clamp(12px,2.2vw,18px) clamp(18px,3vw,26px);
+  border-radius:18px;
+  background:var(--btn-bg); color:white;
+  box-shadow:var(--shadow), 0 0 0 2px rgba(255,255,255,.08) inset;
+  transition:transform .08s ease, box-shadow .2s ease, background .2s ease;
 }
-.music-btn:hover{ transform: translateY(-1px); box-shadow: 0 10px 28px rgba(0,0,0,.4), 0 0 22px rgba(245,211,58,.45); }
-.music-btn:active{ transform: translateY(0); }
+.music-btn:hover{ background:var(--btn-bg-hover) }
+.music-btn:active{ transform:translateY(1px) }
+.music-btn[aria-pressed="true"]{ box-shadow:var(--shadow), 0 0 0 3px var(--glow) inset }
+
+/* Drobne korekty na bardzo małych ekranach */
+@media (max-width:360px){
+  .title{ font-size:38px }
+  .line{ font-size:17px }
+  .contact{ font-size:16px }
+}
