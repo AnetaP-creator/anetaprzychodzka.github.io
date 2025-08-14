@@ -1,22 +1,100 @@
-body {
+/* Reset marginesów i wypełnień */
+* {
     margin: 0;
-    background-color: black;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ustawienie globalnego tła */
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('tlo_galaktyczne.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: white;
     text-align: center;
+    line-height: 1.6;
 }
 
-header, section, footer {
-    margin-bottom: 30px;
+/* Złote nagłówki */
+h1, h2, h3 {
+    color: gold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
-img {
+/* Sekcje */
+section {
+    padding: 40px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    border-radius: 12px;
+    max-width: 900px;
+}
+
+/* Baner główny */
+.hero {
+    padding: 80px 20px;
+    background: url('baner_wszechswiatcieslyszy.jpg') no-repeat center center;
+    background-size: cover;
+    color: gold;
+}
+
+/* Tekst kontaktowy */
+a, .contact-email {
+    color: gold;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Przyciski */
+button, .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background: linear-gradient(90deg, #4e00c2, #7a00f5);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+button:hover, .btn:hover {
+    background: linear-gradient(90deg, #7a00f5, #4e00c2);
+}
+
+/* Sekcja Bezpieczna współpraca */
+#umowa {
+    background: url('tlo_galaktyczne.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+}
+
+#umowa h2 {
+    color: gold;
+}
+
+/* Cennik */
+.cennik img {
     max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
 }
 
-audio {
-    display: none;
+/* Responsywność */
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 10px;
+    }
+    section {
+        padding: 20px 10px;
+    }
+    button, .btn {
+        width: 90%;
+    }
 }
