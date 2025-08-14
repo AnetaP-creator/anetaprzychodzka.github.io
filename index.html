@@ -3,41 +3,56 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wszechświat Cię Słyszy — strona główna</title>
-  <meta name="description" content="Wszechświat Cię Słyszy: galaktyczny design, strony, banery, poezja i cytaty Biblii. Kontakt: anetaprzychodzka75@gmail.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Wszechświat Cię Słyszy – Strona główna</title>
+  <meta name="description" content="Stworzę dla Ciebie: reklamę, strony, banery. Tworzę dla Ciebie: poezję, cytaty Biblii, literaturę.">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- WAŻNE: wgraj też plik style.css (podam Ci zaraz) -->
-  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="stylesheet" href="style.css?v=10">
 </head>
-<body>
+<body class="has-galaxy-bg">
 
-  <!-- 1) BANER + MUZYKA -->
-  <header class="hero" id="start" role="banner" aria-label="Baner główny">
-    <div class="hero__overlay" aria-hidden="true"></div>
-    <div class="hero__bg" role="img" aria-label="Galaktyczne tło"></div>
+<header class="main-header">
+  <nav class="main-nav">
+    <a href="o-mnie.html">O mnie</a>
+    <a href="cennik.html">Cennik</a>
+    <a href="umowa.html">Bezpieczna współpraca</a>
+  </nav>
+</header>
 
-    <div class="hero__content">
-      <h1 class="title">WSZECHŚWIAT<br><span>CIĘ SŁYSZY</span></h1>
+<section class="hero">
+  <img src="baner_wszechswiatcieslyszy.jpg" alt="WSZECHŚWIAT CIĘ SŁYSZY – baner główny" class="hero-banner">
+  <button id="music-btn" class="btn-music">🎵 Włącz muzykę</button>
+  <audio id="bg-music" loop>
+    <source src="divine-feminine-energy.mp3" type="audio/mpeg">
+  </audio>
+</section>
 
-      <nav class="quick-nav" aria-label="Nawigacja sekcji">
-        <a href="#o-mnie">O mnie</a>
-        <a href="#cennik">Cennik</a>
-        <a href="#wspolpraca">Bezpieczna współpraca</a>
-      </nav>
+<main class="page">
+  <h1 class="page__title">Wszechświat Cię Słyszy</h1>
+  <p class="intro">
+    Stworzę dla Ciebie: <b>reklamę • strony • banery</b><br>
+    Tworzę dla Ciebie: <b>poezję • cytaty Biblii • literaturę</b>
+  </p>
+  <p class="contact-info">
+    Kontakt: <a href="mailto:anetaprzychodzka75@gmail.com">anetaprzychodzka75@gmail.com</a>
+  </p>
+</main>
 
-      <div class="lines">
-        <p class="line">STWORZĘ DLA CIEBIE: <strong>REKLAMĘ • STRONY • BANERY</strong></p>
-        <p class="line">TWORZĘ DLA CIEBIE: <strong>POEZJĘ • CYTATY BIBLII • LITERATURĘ</strong></p>
-      </div>
+<script>
+  const btn = document.getElementById('music-btn');
+  const audio = document.getElementById('bg-music');
+  let playing = false;
 
-      <div class="contact">
-        <p>Kontakt:</p>
-        <p>
-          <a class="email" href="mailto:anetaprzychodzka75@gmail.com">anetaprzychodzka75@gmail.com</a><br>
-          <a class="site" href="https://wszechswiatcieslyszy.pl" target="_blank" rel="noopener">https://wszechswiatcieslyszy.pl</a>
-        </p>
-      </div>
+  btn.addEventListener('click', () => {
+    if (!playing) {
+      audio.play();
+      btn.textContent = '⏸️ Zatrzymaj muzykę';
+    } else {
+      audio.pause();
+      btn.textContent = '🎵 Włącz muzykę';
+    }
+    playing = !playing;
+  });
+</script>
 
-      <!-- Przycisk sterujący muzyką -->
-      <button id="music
+</body>
+</html>
