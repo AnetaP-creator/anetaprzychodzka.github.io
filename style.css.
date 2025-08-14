@@ -17,7 +17,7 @@ body{
   font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Noto Sans",sans-serif;
 }
 
-/* Sekcja hero */
+/* HERO */
 .hero{
   position:relative;
   min-height:100vh;
@@ -25,76 +25,18 @@ body{
   place-items:center;
   overflow:hidden;
 }
-
 .hero__bg{
-  position:absolute; inset:0;
-  background-image:url('baner_wszechswiatcieslyszy.jpg'); /* nowy plik w katalogu głównym */
+  position:absolute;
+  inset:0;
+  background-image:url('baner_wszechswiatcieslyszy.jpg'); /* ← plik w repo */
   background-size:cover;
   background-position:center;
   filter:saturate(1.05) contrast(1.05);
   z-index:0;
 }
-
 .hero__overlay{
-  position:absolute; inset:0;
+  position:absolute;
+  inset:0;
   background:radial-gradient(ellipse at center, rgba(255,255,255,.06) 0%, rgba(10,12,32,.6) 55%, rgba(6,8,24,.9) 100%);
-  z-index:1; pointer-events:none;
-}
-
-.hero__content{
-  position:relative; z-index:2;
-  width:min(100%,1100px);
-  padding:clamp(16px,2.5vw,32px);
-  text-align:center;
-  text-shadow:0 2px 0 rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.55);
-}
-
-.title{
-  font-family:Cinzel,serif;
-  font-weight:800;
-  letter-spacing:.02em;
-  line-height:1.05;
-  margin:0 0 clamp(16px,3vw,28px);
-  font-size:clamp(44px,7.5vw,86px);
-  color:var(--gold);
-}
-.title span{display:inline-block;margin-top:.05em}
-
-.lines{ margin:clamp(16px,3vw,28px) auto; max-width:1000px; }
-.line{
-  margin:.35em 0;
-  font-size:clamp(18px,2.8vw,34px);
-  font-weight:700;
-  letter-spacing:.02em;
-  color:var(--gold);
-}
-
-.contact{ margin:clamp(14px,3vw,24px) 0 clamp(16px,3.5vw,30px); font-size:clamp(18px,2.5vw,28px) }
-.contact p{ margin:.25em 0 }
-a.email, a.site{
-  color:var(--gold); font-weight:700; text-decoration:none;
-  border-bottom:2px solid transparent;
-  transition:border-color .2s ease, text-shadow .2s ease;
-}
-a.email:hover, a.site:hover{ border-color:var(--gold); text-shadow:0 0 12px rgba(247,215,116,.4) }
-
-/* Przycisk muzyki */
-.music-btn{
-  appearance:none; border:0; cursor:pointer;
-  font:700 clamp(16px,2.2vw,24px)/1.1 Inter,system-ui,sans-serif;
-  padding:clamp(12px,2.2vw,18px) clamp(18px,3vw,26px);
-  border-radius:18px;
-  background:var(--btn-bg); color:white;
-  box-shadow:var(--shadow), 0 0 0 2px rgba(255,255,255,.08) inset;
-  transition:transform .08s ease, box-shadow .2s ease, background .2s ease;
-}
-.music-btn:hover{ background:var(--btn-bg-hover) }
-.music-btn:active{ transform:translateY(1px) }
-.music-btn[aria-pressed="true"]{ box-shadow:var(--shadow), 0 0 0 3px var(--glow) inset }
-
-/* Drobne korekty na bardzo małych ekranach */
-@media (max-width:360px){
-  .title{ font-size:38px }
-  .line{ font-size:17px }
-  .contact{ font-size:16px }
-}
+  z-index:1;
+  pointer-events
