@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wszechświat Cię Słyszy – Strona Główna</title>
-  <meta name="description" content="Wszechświat Cię Słyszy – galaktyczny design, strony, banery, poezja i cytaty Biblii. Skontaktuj się: anetaprzychodzka75@gmail.com" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <title>Wszechświat Cię Słyszy – strona główna</title>
+  <meta name="description" content="Wszechświat Cię Słyszy: galaktyczny design, strony, banery, poezja, cytaty Biblii. Kontakt: anetaprzychodzka75@gmail.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
+
   <main class="hero" role="main" aria-label="Baner główny">
-    <div class="hero__overlay"></div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__bg" role="img" aria-label="Galaktyczne tło"></div>
 
     <div class="hero__content">
       <h1 class="title">WSZECHŚWIAT<br><span>CIĘ SŁYSZY</span></h1>
@@ -22,6 +23,12 @@
         <p class="line">TWORZĘ DLA CIEBIE: <strong>POEZJĘ • CYTATY BIBLII • LITERATURĘ</strong></p>
       </div>
 
+      <nav class="quick-nav" aria-label="Szybkie linki">
+        <a href="o-mnie.html">O mnie</a>
+        <a href="cennik.html">Cennik</a>
+        <a href="wspolpraca.html">Bezpieczna współpraca + umowa</a>
+      </nav>
+
       <div class="contact">
         <p>Kontakt:</p>
         <p>
@@ -30,39 +37,43 @@
         </p>
       </div>
 
-      <button id="musicBtn" class="music-btn" type="button" aria-pressed="false">Włącz muzykę 🎵</button>
+      <!-- Przycisk sterujący muzyką -->
+      <button id="musicBtn" class="music-btn" type="button" aria-pressed="false">
+        Włącz muzykę 🎵
+      </button>
+
+      <!-- Muzyka: gotowy plik w katalogu głównym -->
       <audio id="bgMusic" preload="auto" loop>
-        <!-- Twoja muzyka jest w katalogu głównym repo -->
         <source src="divine-feminine-energy.mp3" type="audio/mpeg">
       </audio>
     </div>
-
-    <!-- TŁO: nowy baner JPG w katalogu głównym -->
-    <div class="hero__bg" role="img" aria-label="Galaktyczne tło z gwiazdami, planetami i poświatą skrzydeł anioła"></div>
   </main>
 
   <script>
     const btn = document.getElementById('musicBtn');
     const audio = document.getElementById('bgMusic');
 
-    function setPlayingState(on) {
+    function setPlayingState(on){
       btn.setAttribute('aria-pressed', String(on));
       btn.textContent = on ? 'Wyłącz muzykę 🎵' : 'Włącz muzykę 🎵';
     }
 
     btn.addEventListener('click', async () => {
-      try {
-        if (audio.paused) {
+      try{
+        if(audio.paused){
           await audio.play();
           setPlayingState(true);
-        } else {
+        }else{
           audio.pause();
           setPlayingState(false);
         }
-      } catch (e) {
-        console.warn('Nie udało się odtworzyć muzyki:', e);
+      }catch(err){
+        console.warn('Nie udało się odtworzyć muzyki:', err);
       }
     });
+
+    audio.addEventListener('pause', () => setPlayingState(false));
+    audio.addEventListener('play',  () => setPlayingState(true));
   </script>
 </body>
 </html>
