@@ -16,7 +16,7 @@ body{
   font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Noto Sans",sans-serif;
 }
 
-/* HERO */
+/* ===================== HERO (baner + muzyka) ===================== */
 .hero{
   position:relative;
   min-height:100vh;
@@ -25,30 +25,25 @@ body{
   overflow:hidden;
 }
 .hero__bg{
-  position:absolute;
-  inset:0;
-  background-image:url('baner_wszechswiatcieslyszy.jpg'); /* ← plik w repo */
+  position:absolute; inset:0;
+  background-image:url('baner_wszechswiatcieslyszy.jpg'); /* plik w katalogu głównym */
   background-size:cover;
   background-position:center;
   filter:saturate(1.05) contrast(1.05);
   z-index:0;
 }
 .hero__overlay{
-  position:absolute;
-  inset:0;
+  position:absolute; inset:0;
   background:radial-gradient(ellipse at center, rgba(255,255,255,.06) 0%, rgba(10,12,32,.6) 55%, rgba(6,8,24,.9) 100%);
-  z-index:1;
-  pointer-events:none;
+  z-index:1; pointer-events:none;
 }
 .hero__content{
-  position:relative;
-  z-index:2;
+  position:relative; z-index:2;
   width:min(100%,1100px);
   padding:clamp(16px,2.5vw,32px);
   text-align:center;
   text-shadow:0 2px 0 rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.55);
 }
-
 .title{
   font-family:Cinzel,serif;
   font-weight:800;
@@ -58,81 +53,91 @@ body{
   font-size:clamp(44px,7.5vw,86px);
   color:var(--gold);
 }
-.title span{
-  display:inline-block;
-  margin-top:.05em;
-}
-
-.lines{
-  margin:clamp(16px,3vw,28px) auto;
-  max-width:1000px;
-}
-.line{
-  margin:.35em 0;
-  font-size:clamp(18px,2.8vw,34px);
-  font-weight:700;
-  letter-spacing:.02em;
-  color:var(--gold);
-}
+.title span{ display:inline-block; margin-top:.05em; }
 
 .quick-nav{
   margin:clamp(8px,2vw,14px) 0 clamp(16px,3vw,24px);
-  display:flex;
-  gap:14px;
-  justify-content:center;
-  flex-wrap:wrap;
+  display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
 }
 .quick-nav a{
-  display:inline-block;
-  padding:.5em .9em;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:700;
-  color:var(--gold);
-  border:2px solid rgba(247,215,116,.35);
-  transition:.2s;
+  display:inline-block; padding:.5em .9em; border-radius:999px;
+  text-decoration:none; font-weight:700;
+  color:var(--gold); border:2px solid rgba(247,215,116,.35);
+  transition:transform .08s ease, border-color .2s ease, box-shadow .2s ease;
 }
-.quick-nav a:hover{
-  border-color:var(--gold);
+.quick-nav a:hover{ transform:translateY(-1px); border-color:var(--gold); box-shadow:0 0 4px var(--glow) inset; }
+
+.lines{ margin:clamp(12px,3vw,22px) auto; max-width:1000px; }
+.line{
+  margin:.35em 0;
+  font-size:clamp(18px,2.8vw,34px);
+  font-weight:700; letter-spacing:.02em; color:var(--gold);
 }
 
-.contact{
-  margin:clamp(14px,3vw,24px) 0 clamp(10px,2vw,18px)
-}
+.contact{ margin:clamp(10px,3vw,20px) 0 clamp(10px,2vw,18px) }
 .contact a{
-  color:var(--gold);
-  font-weight:700;
-  text-decoration:none;
-  border-bottom:2px solid transparent;
+  color:var(--gold); font-weight:700; text-decoration:none; border-bottom:2px solid transparent;
 }
-.contact a:hover{
-  border-color:var(--gold);
-}
+.contact a:hover{ border-color:var(--gold); }
 
-/* Przycisk muzyki */
+/* przycisk muzyki */
 .music-btn{
-  appearance:none;
-  border:0;
-  cursor:pointer;
+  appearance:none; border:0; cursor:pointer;
   font:700 clamp(16px,2.2vw,24px)/1.1 Inter,system-ui,sans-serif;
   padding:clamp(12px,2.2vw,18px) clamp(18px,3vw,26px);
-  border-radius:18px;
-  background:var(--btn-bg);
-  color:#fff;
+  border-radius:18px; background:var(--btn-bg); color:#fff;
   box-shadow:var(--shadow), 0 0 0 3px var(--glow) inset;
   transition:transform .08s ease, box-shadow .2s ease, background .2s ease;
 }
-.music-btn:hover{
-  background:var(--btn-bg-hover);
-}
-.music-btn:active{
-  transform:translateY(1px);
-}
-.music-btn[aria-pressed="true"]{
-  box-shadow:var(--shadow), 0 0 3px var(--glow) inset;
-}
+.music-btn:hover{ background:var(--btn-bg-hover); }
+.music-btn:active{ transform:translateY(1px); }
+.music-btn[aria-pressed="true"]{ box-shadow:var(--shadow), 0 0 3px var(--glow) inset; }
 
-/* Małe ekrany */
+/* ===================== SEKCJE OBRAZOWE ===================== */
+.section{ position:relative; padding:clamp(20px,3vw,36px) 0; }
+.section__wrap{ width:min(100%,1200px); margin:0 auto; padding:0 16px; }
+.section--image img{ display:block; width:100%; height:auto; border-radius:12px; box-shadow:var(--shadow); }
+
+/* ===================== BEZPIECZNA WSPÓŁPRACA ===================== */
+.section--wspolpraca{
+  position:relative; min-height:70vh; display:grid; place-items:center;
+  background: #0b0f2a url('tlo_galaktyczne.jpg') center/cover no-repeat; /* Twoje tło */
+  overflow:hidden;
+}
+.safe__overlay{
+  position:absolute; inset:0; z-index:0;
+  background:radial-gradient(ellipse at center, rgba(255,255,255,.05) 0%, rgba(10,12,32,.65) 55%, rgba(6,8,24,.92) 100%);
+}
+.safe__wrap{
+  position:relative; z-index:1;
+  width:min(100%,980px); margin:0 auto; padding:clamp(20px,3vw,32px);
+  text-align:center;
+  backdrop-filter: blur(2px) saturate(1.1);
+  border-radius:18px;
+  box-shadow:0 12px 40px rgba(0,0,0,.45), 0 0 0 3px rgba(247,215,116,.18) inset;
+}
+.section--wspolpraca h2{
+  font-family:Cinzel,serif; color:var(--gold);
+  font-size:clamp(28px,5vw,48px); margin:.2em 0 .4em;
+}
+.section--wspolpraca p{ font-size:clamp(16px,2.3vw,20px); line-height:1.6; margin:.6em 0; }
+.section--wspolpraca .email{ color:var(--gold); font-weight:700; text-decoration:none; border-bottom:2px solid transparent; }
+.section--wspolpraca .email:hover{ border-color:var(--gold); }
+.actions{ margin-top:.8em; }
+.btn{
+  display:inline-block; padding:.8em 1.2em; border-radius:12px;
+  background:var(--btn-bg); color:#fff; font-weight:700; text-decoration:none;
+  box-shadow:var(--shadow), 0 0 0 3px var(--glow) inset; transition:background .2s ease, transform .08s ease;
+}
+.btn:hover{ background:var(--btn-bg-hover); }
+.btn--primary{ background:var(--btn-bg); }
+.back-top{
+  display:inline-block; margin-top:1em; color:var(--gold); text-decoration:none; font-weight:700;
+  border-bottom:2px solid transparent;
+}
+.back-top:hover{ border-color:var(--gold); }
+
+/* ===================== RESPONSYWNOŚĆ ===================== */
 @media (max-width:360px){
   .title{ font-size:38px }
   .line{ font-size:17px }
