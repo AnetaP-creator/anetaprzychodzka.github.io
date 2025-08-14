@@ -3,139 +3,131 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wszechświat Cię Słyszy – Strona główna</title>
-  <meta name="description" content="Galaktyczny design: strony, banery, poezja i cytaty Biblii. Skontaktuj się: anetaprzychodzka75@gmail.com" />
+
+  <title>Wszechświat Cię Słyszy — galaktyczny design, strony, banery, poezja</title>
+  <meta name="description" content="Tworzę dla Ciebie: reklamy, strony, banery, poezję, cytaty Biblii i literaturę. Sprawdź cennik i zasady bezpiecznej współpracy." />
+
+  <!-- Fonty -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=7" />
+
+  <!-- JEDYNY styl używany przez stronę -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HERO -->
-  <header class="hero" id="start" role="banner" aria-label="Hero">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <div class="hero__overlay" aria-hidden="true"></div>
+  <!-- Stały kosmiczny background + delikatne kropki -->
+  <div class="site-bg" aria-hidden="true"></div>
 
-    <div class="hero__content">
-      <h1 class="title">WSZECHŚWIAT<br><span>CIĘ SŁYSZY</span></h1>
+  <main class="container">
 
-      <div class="lines">
-        <p class="line">STWORZĘ DLA CIEBIE: <strong>REKLAMĘ · STRONY · BANERY</strong></p>
-        <p class="line">TWORZĘ DLA CIEBIE: <strong>POEZJĘ · CYTATY BIBLII · LITERATURĘ</strong></p>
+    <!-- 1) HERO: pokazujemy baner jako obraz (żadnych nakładających się napisów) -->
+    <section id="start" class="card card--flush">
+      <img class="hero-img" src="baner_wszechswiatcieslyszy.jpg" alt="Wszechświat Cię Słyszy — główny baner" loading="eager" />
+    </section>
+
+    <!-- Przyciski: muzyka + nawigacja -->
+    <nav class="nav">
+      <button id="musicBtn" class="btn btn--primary" type="button" aria-pressed="false" aria-label="Włącz muzykę">
+        Włącz muzykę 🎵
+      </button>
+
+      <div class="nav__links">
+        <a class="chip" href="#o-mnie">O mnie</a>
+        <a class="chip" href="#cennik">Cennik</a>
+        <a class="chip" href="#wspolpraca">Bezpieczna współpraca</a>
       </div>
+    </nav>
 
-      <p class="contact">
-        Kontakt: <a class="email" href="mailto:anetaprzychodzka75@gmail.com">anetaprzychodzka75@gmail.com</a><br />
-        <a class="site" href="https://wszechswiatcieslyszy.pl" target="_blank" rel="noopener">https://wszechswiatcieslyszy.pl</a>
-      </p>
-
-      <button id="musicBtn" class="music-btn" type="button" aria-pressed="false">Włącz muzykę 🎵</button>
-
-      <nav class="nav">
-        <a href="#o-mnie" class="nav__btn">O mnie</a>
-        <a href="#cennik" class="nav__btn">Cennik</a>
-        <a href="#bezpieczna" class="nav__btn nav__btn--wide">Bezpieczna współpraca</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- O MNIE -->
-  <main id="o-mnie" class="page" aria-label="O mnie">
-    <section class="card">
-      <h2 class="h2">O MNIE</h2>
+    <!-- 2) O MNIE: obraz w ramce + lead -->
+    <section id="o-mnie" class="card">
+      <h2 class="h2 gold">O Mnie</h2>
       <p class="lead">
-        Nazywam się <strong>Aneta</strong> i tworzę nowoczesne, funkcjonalne strony i grafiki,
+        Nazywam się <span class="gold-strong">Aneta</span> i tworzę nowoczesne, funkcjonalne strony oraz grafiki,
         które przyciągają uwagę i zostają w pamięci.
       </p>
-
-      <!-- Grafika O Mnie jako obraz (nie tło) -->
-      <figure class="imgwrap">
-        <img src="Aneta_Strona_O_Mnie_FINAL.png" alt="Grafika sekcji O mnie" loading="lazy" />
-      </figure>
-
-      <nav class="nav nav--footer">
-        <a href="#start" class="nav__btn">Góra</a>
-        <a href="#cennik" class="nav__btn">Cennik</a>
-        <a href="#bezpieczna" class="nav__btn nav__btn--wide">Bezpieczna współpraca</a>
-      </nav>
+      <div class="figure">
+        <img src="Aneta_Strona_O_Mnie_FINAL.png" alt="O mnie — Aneta" loading="lazy">
+      </div>
+      <div class="nav__links">
+        <a class="chip" href="#start">Góra strony</a>
+        <a class="chip" href="#cennik">Cennik</a>
+      </div>
     </section>
-  </main>
 
-  <!-- CENNIK -->
-  <section id="cennik" class="page" aria-label="Cennik">
-    <div class="card">
-      <h2 class="h2">CENNIK</h2>
+    <!-- 3) CENNIK: po prostu finalna grafika w responsywnej ramce -->
+    <section id="cennik" class="card">
+      <h2 class="h2 gold">Cennik</h2>
       <p class="lead">Aktualne pakiety i ceny usług.</p>
+      <div class="figure">
+        <img src="Aneta_Cennik_FINAL_NOWY.png" alt="Cennik usług — Wszechświat Cię Słyszy" loading="lazy">
+      </div>
+      <div class="nav__links">
+        <a class="chip" href="#o-mnie">O mnie</a>
+        <a class="chip" href="#wspolpraca">Bezpieczna współpraca</a>
+      </div>
+    </section>
 
-      <!-- Cennik jako obraz w karcie -->
-      <figure class="imgwrap">
-        <img src="Aneta_Cennik_FINAL_NOWY.png" alt="Cennik usług Wszechświat Cię Słyszy" loading="lazy" />
-      </figure>
-
-      <nav class="nav nav--footer">
-        <a href="#start" class="nav__btn">Góra</a>
-        <a href="#o-mnie" class="nav__btn">O mnie</a>
-        <a href="#bezpieczna" class="nav__btn nav__btn--wide">Bezpieczna współpraca</a>
-      </nav>
-    </div>
-  </section>
-
-  <!-- BEZPIECZNA WSPÓŁPRACA -->
-  <section id="bezpieczna" class="page" aria-label="Bezpieczna współpraca">
-    <div class="card">
-      <h2 class="h2">BEZPIECZNA WSPÓŁPRACA</h2>
+    <!-- 4) BEZPIECZNA WSPÓŁPRACA: treść + przycisk PDF + mail -->
+    <section id="wspolpraca" class="card">
+      <h2 class="h2 gold">Bezpieczna współpraca</h2>
       <p class="lead">
-        Pracuję na podstawie jasnych zasad określonych w umowie. Każdy projekt
-        startuje po podpisaniu umowy i wpłacie zaliczki – to bezpieczeństwo i klarowność dla obu stron.
+        Pracuję na podstawie jasnych zasad określonych w umowie. Każdy projekt rozpoczynam po podpisaniu umowy i wpłacie zaliczki — to
+        bezpieczeństwo i klarowność dla obu stron.
       </p>
 
-      <div class="actions">
-        <a class="btn btn--primary" href="umowa_z_logo_tlo_final.pdf" download>⬇ Pobierz umowę (PDF)</a>
-        <a class="btn" href="mailto:anetaprzychodzka75@gmail.com">✉ Napisz do mnie</a>
+      <div class="cta">
+        <a class="btn btn--primary" href="umowa_z_logo_tlo_final.pdf" download>
+          ⬇ Pobierz umowę (PDF)
+        </a>
+        <a class="btn btn--ghost" href="mailto:anetaprzychodzka75@gmail.com">
+          ✉ Napisz do mnie
+        </a>
       </div>
 
-      <nav class="nav nav--footer">
-        <a href="#start" class="nav__btn">Góra</a>
-        <a href="#o-mnie" class="nav__btn">O mnie</a>
-        <a href="#cennik" class="nav__btn">Cennik</a>
-      </nav>
-    </div>
-  </section>
+      <div class="nav__links">
+        <a class="chip" href="#start">Góra strony</a>
+        <a class="chip" href="#cennik">Cennik</a>
+      </div>
+    </section>
 
-  <footer class="footer" aria-label="Stopka">
-    <p>© <span id="year"></span> Wszechświat Cię Słyszy. Galaktyczny design ✨</p>
-  </footer>
+    <!-- Stopka -->
+    <footer class="footer">
+      <p>© <span id="y"></span> <strong>Wszechświat Cię Słyszy</strong> • Galaktyczny design ✨</p>
+      <p>E-mail: <a href="mailto:anetaprzychodzka75@gmail.com">anetaprzychodzka75@gmail.com</a></p>
+    </footer>
 
-  <!-- Muzyka w tle -->
-  <audio id="bgMusic" preload="auto" loop>
-    <source src="divine-feminine-energy.mp3" type="audio/mpeg">
-  </audio>
+    <!-- MUZYKA -->
+    <audio id="bgMusic" preload="auto" loop>
+      <source src="divine-feminine-energy.mp3" type="audio/mpeg">
+    </audio>
+  </main>
 
+  <!-- Skrypt: play/pause -->
   <script>
-    // Rok w stopce
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Muzyka
     const btn = document.getElementById('musicBtn');
     const audio = document.getElementById('bgMusic');
 
-    function setPlaying(on) {
-      btn.setAttribute('aria-pressed', String(on));
-      btn.textContent = on ? 'Wyłącz muzykę 🎵' : 'Włącz muzykę 🎵';
+    function setPlaying(isOn){
+      btn.setAttribute('aria-pressed', String(isOn));
+      btn.textContent = isOn ? 'Wyłącz muzykę 🔇' : 'Włącz muzykę 🎵';
     }
 
     btn.addEventListener('click', async () => {
-      try {
-        if (audio.paused) {
+      try{
+        if (audio.paused){
           await audio.play();
           setPlaying(true);
         } else {
           audio.pause();
           setPlaying(false);
         }
-      } catch (e) {
+      }catch(e){
         console.warn('Nie udało się odtworzyć muzyki:', e);
       }
     });
+
+    // Rok w stopce
+    document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
