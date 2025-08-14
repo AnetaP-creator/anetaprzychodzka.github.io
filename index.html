@@ -3,74 +3,41 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bezpieczna współpraca – Wszechświat Cię Słyszy</title>
-  <meta name="description" content="Zasady bezpiecznej współpracy, umowa, dane kontaktowe – Wszechświat Cię Słyszy" />
+  <title>Wszechświat Cię Słyszy — strona główna</title>
+  <meta name="description" content="Wszechświat Cię Słyszy: galaktyczny design, strony, banery, poezja i cytaty Biblii. Kontakt: anetaprzychodzka75@gmail.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=5">
-  <style>
-    body{
-      background-image:url('tlo_galaktyczne.jpg');
-      background-size:cover;
-      background-position:center;
-      background-attachment:fixed;
-    }
-    main{
-      background:rgba(6,8,24,0.75);
-      padding:clamp(16px,3vw,32px);
-      margin:clamp(16px,3vw,32px) auto;
-      border-radius:18px;
-      max-width:900px;
-      box-shadow:0 0 40px rgba(247,215,116,0.35);
-    }
-    h1{
-      color:var(--gold);
-      font-family:Cinzel,serif;
-      font-size:clamp(28px,4vw,46px);
-      margin-top:0;
-      text-align:center;
-    }
-    p{
-      font-size:clamp(16px,2vw,20px);
-      line-height:1.6;
-    }
-    .download-btn{
-      display:inline-block;
-      margin-top:1em;
-      padding:.7em 1.2em;
-      border-radius:999px;
-      background:var(--btn-bg);
-      color:#fff;
-      font-weight:700;
-      text-decoration:none;
-      box-shadow:var(--shadow), 0 0 0 3px var(--glow) inset;
-      transition:.2s;
-    }
-    .download-btn:hover{
-      background:var(--btn-bg-hover);
-    }
-    .contact{
-      margin-top:2em;
-      font-size:clamp(16px,2vw,20px);
-    }
-    .contact a{
-      color:var(--gold);
-      font-weight:700;
-      text-decoration:none;
-      border-bottom:2px solid transparent;
-    }
-    .contact a:hover{
-      border-color:var(--gold);
-    }
-  </style>
+  <!-- WAŻNE: wgraj też plik style.css (podam Ci zaraz) -->
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
-<main>
-  <h1>Bezpieczna współpraca</h1>
-  <p>
-    Dbam o to, aby każda współpraca przebiegała w atmosferze zaufania i pełnego bezpieczeństwa.  
-    Pracuję na podstawie jasnych zasad, które określa umowa.  
-    Każdy projekt rozpoczynam po podpisaniu umowy i wpłacie zaliczki, aby obie strony miały pewność co do warunków realizacji.
-  </p>
+  <!-- 1) BANER + MUZYKA -->
+  <header class="hero" id="start" role="banner" aria-label="Baner główny">
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__bg" role="img" aria-label="Galaktyczne tło"></div>
 
-  <a class="download-btn" href="umowa_z_logo_tlo_final.pdf
+    <div class="hero__content">
+      <h1 class="title">WSZECHŚWIAT<br><span>CIĘ SŁYSZY</span></h1>
+
+      <nav class="quick-nav" aria-label="Nawigacja sekcji">
+        <a href="#o-mnie">O mnie</a>
+        <a href="#cennik">Cennik</a>
+        <a href="#wspolpraca">Bezpieczna współpraca</a>
+      </nav>
+
+      <div class="lines">
+        <p class="line">STWORZĘ DLA CIEBIE: <strong>REKLAMĘ • STRONY • BANERY</strong></p>
+        <p class="line">TWORZĘ DLA CIEBIE: <strong>POEZJĘ • CYTATY BIBLII • LITERATURĘ</strong></p>
+      </div>
+
+      <div class="contact">
+        <p>Kontakt:</p>
+        <p>
+          <a class="email" href="mailto:anetaprzychodzka75@gmail.com">anetaprzychodzka75@gmail.com</a><br>
+          <a class="site" href="https://wszechswiatcieslyszy.pl" target="_blank" rel="noopener">https://wszechswiatcieslyszy.pl</a>
+        </p>
+      </div>
+
+      <!-- Przycisk sterujący muzyką -->
+      <button id="music
