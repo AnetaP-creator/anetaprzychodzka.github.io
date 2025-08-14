@@ -3,56 +3,262 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wszechświat Cię Słyszy – Strona główna</title>
-  <meta name="description" content="Stworzę dla Ciebie: reklamę, strony, banery. Tworzę dla Ciebie: poezję, cytaty Biblii, literaturę.">
+  <title>Wszechświat Cię Słyszy – galaktyczny design, strony, banery, poezja</title>
+  <meta name="description" content="Wszechświat Cię Słyszy – galaktyczny design • strony internetowe • banery • poezja i cytaty Biblii. Skontaktuj się: anetaprzychodzka75@gmail.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=10">
-</head>
-<body class="has-galaxy-bg">
-
-<header class="main-header">
-  <nav class="main-nav">
-    <a href="o-mnie.html">O mnie</a>
-    <a href="cennik.html">Cennik</a>
-    <a href="umowa.html">Bezpieczna współpraca</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <img src="baner_wszechswiatcieslyszy.jpg" alt="WSZECHŚWIAT CIĘ SŁYSZY – baner główny" class="hero-banner">
-  <button id="music-btn" class="btn-music">🎵 Włącz muzykę</button>
-  <audio id="bg-music" loop>
-    <source src="divine-feminine-energy.mp3" type="audio/mpeg">
-  </audio>
-</section>
-
-<main class="page">
-  <h1 class="page__title">Wszechświat Cię Słyszy</h1>
-  <p class="intro">
-    Stworzę dla Ciebie: <b>reklamę • strony • banery</b><br>
-    Tworzę dla Ciebie: <b>poezję • cytaty Biblii • literaturę</b>
-  </p>
-  <p class="contact-info">
-    Kontakt: <a href="mailto:anetaprzychodzka75@gmail.com">anetaprzychodzka75@gmail.com</a>
-  </p>
-</main>
-
-<script>
-  const btn = document.getElementById('music-btn');
-  const audio = document.getElementById('bg-music');
-  let playing = false;
-
-  btn.addEventListener('click', () => {
-    if (!playing) {
-      audio.play();
-      btn.textContent = '⏸️ Zatrzymaj muzykę';
-    } else {
-      audio.pause();
-      btn.textContent = '🎵 Włącz muzykę';
+  <style>
+    /* =========================
+       ZMIENNE I RESET
+    ==========================*/
+    :root{
+      --gold:#f7d774;
+      --gold-soft:#e9c865;
+      --ink:#eae9ff;
+      --bg-deep:#060818;
+      --card:#0d1029;
+      --btn-bg:#3926ff;
+      --btn-bg-hover:#4c3dff;
+      --glow:rgba(247,215,116,.3);
+      --shadow:0 10px 30px rgba(0,0,0,.55);
+      --radius:18px;
     }
-    playing = !playing;
-  });
-</script>
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;height:100%}
+    body{
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Noto Sans",sans-serif;
+      color:var(--ink);
+      background:#000;
+    }
+    a{color:inherit}
+    img{max-width:100%;display:block}
 
+    /* =========================
+       NAWIGACJA
+    ==========================*/
+    .nav{
+      position:fixed; inset:auto 0 0 0;
+      display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap;
+      padding:.6rem .8rem;
+      background:linear-gradient(180deg,rgba(6,8,24,.0),rgba(6,8,24,.75) 45%, rgba(6,8,24,.9));
+      z-index:40;
+      backdrop-filter:saturate(1.1) blur(2px);
+    }
+    .nav a{
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:.02em;
+      border-radius:999px;
+      padding:.6rem .9rem;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);
+    }
+    .nav a:hover{background:rgba(255,255,255,.12)}
+
+    /* =========================
+       HERO (baner + muzyka)
+    ==========================*/
+    .hero{
+      position:relative; min-height:100vh; display:grid; place-items:center; overflow:hidden;
+    }
+    .hero__bg{
+      position:absolute; inset:0;
+      background-image:url('baner_wszechswiatcieslyszy.jpg');
+      background-size:cover; background-position:center;
+      filter:saturate(1.05) contrast(1.05);
+      z-index:0;
+    }
+    .hero__overlay{
+      position:absolute; inset:0;
+      background:radial-gradient(ellipse at center, rgba(255,255,255,.06) 0%, rgba(10,12,32,.6) 55%, rgba(6,8,24,.9) 100%);
+      z-index:1; pointer-events:none;
+    }
+    .hero__content{
+      position:relative; z-index:2;
+      width:min(100%,1100px);
+      padding:clamp(16px,2.5vw,32px);
+      text-align:center;
+      text-shadow:0 2px 0 rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.55);
+    }
+    .title{
+      font-family:Cinzel,serif; margin:0 0 .5rem 0;
+      font-size:clamp(40px,6.5vw,80px); line-height:1.1;
+      color:var(--gold);
+    }
+    .lines{margin:clamp(10px,2vw,18px) 0 0 0}
+    .line{margin:.25em 0; font-size:clamp(18px,3.6vw,28px)}
+    .line strong{color:var(--gold); letter-spacing:.02em}
+
+    .music-btn{
+      display:inline-flex; align-items:center; gap:.5rem;
+      margin-top:clamp(14px,2.4vw,22px);
+      padding:.8rem 1.1rem; border-radius:999px;
+      font-weight:800; letter-spacing:.02em; color:#fff;
+      background:var(--btn-bg);
+      box-shadow:var(--shadow), 0 0 0 3px var(--glow) inset;
+      border:none; cursor:pointer;
+    }
+    .music-btn:hover{background:var(--btn-bg-hover)}
+    .music-btn[aria-pressed="true"]{box-shadow:var(--shadow), 0 0 0 3px rgba(111,255,179,.35) inset}
+
+    /* =========================
+       WSPÓLNE TŁO STRON
+    ==========================*/
+    .page{
+      position:relative; isolation:isolate;
+      background-image:url('tlo_galaktyczne.jpg');
+      background-attachment:fixed;
+      background-size:cover; background-position:center;
+      box-shadow:inset 0 0 0 9999px rgba(6,8,24,.65);
+      padding:clamp(18px,3vw,30px) 0;
+    }
+    .container{
+      width:min(100%,1100px);
+      margin-inline:auto;
+      padding:0 clamp(16px,3vw,28px);
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(6,8,24,.75));
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:clamp(16px,3vw,28px);
+    }
+    .section-title{
+      font-family:Cinzel,serif; color:var(--gold);
+      font-size:clamp(28px,5vw,46px); margin:0 0 .6rem 0; text-align:center;
+      text-shadow:0 2px 0 rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.55);
+    }
+    .lead{font-size:clamp(16px,2.4vw,20px); text-align:center}
+
+    /* =========================
+       PRZYCISKI I LINKI
+    ==========================*/
+    .btn{
+      display:inline-block; text-decoration:none; color:#fff; font-weight:800;
+      padding:.8rem 1.2rem; border-radius:999px; letter-spacing:.02em;
+      background:var(--btn-bg); box-shadow:var(--shadow), 0 0 0 3px var(--glow) inset;
+    }
+    .btn:hover{background:var(--btn-bg-hover)}
+    .btn-row{display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; margin-top:1rem}
+    .gold{color:var(--gold); font-weight:800}
+
+    /* stopka */
+    footer{
+      text-align:center; padding:24px 12px; color:#bfc4ff;
+      background:#050715; border-top:1px solid rgba(255,255,255,.08);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Główna nawigacja">
+    <a href="#o-mnie"    title="O mnie">O mnie</a>
+    <a href="#cennik"    title="Cennik">Cennik</a>
+    <a href="#wspolpraca" title="Bezpieczna współpraca">Bezpieczna współpraca</a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" aria-label="Baner główny">
+    <div class="hero__bg" role="img" aria-label="Galaktyczne tło z napisem Wszechświat Cię Słyszy"></div>
+    <div class="hero__overlay"></div>
+
+    <div class="hero__content">
+      <h1 class="title">WSZECHŚWIAT<br><span class="gold">CIĘ SŁYSZY</span></h1>
+
+      <div class="lines" aria-label="Oferta">
+        <p class="line">STWORZĘ DLA CIEBIE: <strong>REKLAMĘ • STRONY • BANERY</strong></p>
+        <p class="line">TWORZĘ DLA CIEBIE: <strong>POEZJĘ • CYTATY BIBLII • LITERATURĘ</strong></p>
+      </div>
+
+      <p style="margin:.9rem 0 0 0">Kontakt: <a class="gold" href="mailto:anetaprzychodzka75@gmail.com">anetaprzychodzka75@gmail.com</a></p>
+
+      <button id="musicBtn" class="music-btn" type="button" aria-pressed="false">
+        Włącz muzykę 🎵
+      </button>
+
+      <audio id="bgMusic" preload="auto" loop>
+        <source src="divine-feminine-energy.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </header>
+
+  <!-- O MNIE -->
+  <section id="o-mnie" class="page" aria-labelledby="o-mnie-title">
+    <div class="container">
+      <div class="card">
+        <h2 id="o-mnie-title" class="section-title">O mnie</h2>
+        <p class="lead">Nazywam się <span class="gold">Aneta</span> i tworzę nowoczesne, funkcjonalne strony oraz grafiki, które przyciągają uwagę
+          i zostają w pamięci.</p>
+        <div style="margin-top:1rem; display:grid; place-items:center;">
+          <img src="Aneta_Strona_O_Mnie_FINAL.png" alt="O mnie – Aneta Przychodzka, opis i zdjęcie" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CENNIK -->
+  <section id="cennik" class="page" aria-labelledby="cennik-title">
+    <div class="container">
+      <div class="card">
+        <h2 id="cennik-title" class="section-title">Cennik</h2>
+        <p class="lead">Aktualne pakiety i ceny usług.</p>
+        <div style="margin-top:1rem; display:grid; place-items:center;">
+          <img src="Aneta_Cennik_FINAL_NOWY.png" alt="Cennik usług – Wszechświat Cię Słyszy" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEZPIECZNA WSPÓŁPRACA -->
+  <section id="wspolpraca" class="page" aria-labelledby="wsp-title">
+    <div class="container">
+      <div class="card">
+        <h2 id="wsp-title" class="section-title">Bezpieczna współpraca</h2>
+        <p class="lead">
+          Pracuję na podstawie jasnych zasad określonych w umowie. Każdy projekt startuje po podpisaniu umowy
+          i wpłacie zaliczki – to bezpieczeństwo i klarowność dla obu stron.
+        </p>
+
+        <div class="btn-row" role="group" aria-label="Dokumenty">
+          <a class="btn" href="umowa_z_logo_tlo_final.pdf" download>⬇️ Pobierz umowę (PDF)</a>
+          <a class="btn" href="mailto:anetaprzychodzka75@gmail.com">✉️ Napisz do mnie</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> Wszechświat Cię Słyszy. Galaktyczny design z sercem ✨
+  </footer>
+
+  <script>
+    // Rok w stopce
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Muzyka: bezpieczny toggle (wymaga gestu użytkownika)
+    const btn = document.getElementById('musicBtn');
+    const audio = document.getElementById('bgMusic');
+
+    function setPlayingState(on){
+      btn.setAttribute('aria-pressed', String(on));
+      btn.textContent = on ? 'Wyłącz muzykę 🎵' : 'Włącz muzykę 🎵';
+    }
+
+    btn.addEventListener('click', async () => {
+      try{
+        if(audio.paused){
+          await audio.play();
+          setPlayingState(true);
+        }else{
+          audio.pause();
+          setPlayingState(false);
+        }
+      }catch(e){
+        console.warn('Nie udało się odtworzyć muzyki:', e);
+      }
+    }, {passive:true});
+  </script>
 </body>
 </html>
