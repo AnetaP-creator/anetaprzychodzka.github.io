@@ -171,3 +171,10 @@ body{
 }
 .footer a{ color:var(--gold); text-decoration:none; border-bottom:1px solid transparent; }
 .footer a:hover{ border-color:var(--gold); }
+.music-credit {
+  color: gold;
+  font-size: 14px;
+  text-align: center;
+  font-style: italic;
+  margin-top: 20px;
+}
